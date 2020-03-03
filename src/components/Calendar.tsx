@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Calendar from "react-calendar";
 
 const DatePicker = () => {
   return (
-    <div>
+    <Fragment>
       <Calendar onChange={() => console.log("DATE")} />
-    </div>
+    </Fragment>
   );
 };
 

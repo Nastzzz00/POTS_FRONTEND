@@ -1,5 +1,5 @@
-import React from "react";
-import { Label, Table, Divider } from "semantic-ui-react";
+import React, { Fragment } from "react";
+import { Label, Table, Divider, List } from "semantic-ui-react";
 import StatusList from "../components/StatusList";
 
 const yellow = ["yellow", "pink", "red"];
@@ -29,20 +29,23 @@ const StatusItem = (props: IStatusItemProps) => {
     title
   } = props;
   return (
-    <div>
-      <StatusList />
-      {props.statuslist.map((list: any) => (
-        <Table.Row>
-          <Label size="big" style={{ marginLeft: 20 }} color="green">
-            {list.OR}
-          </Label>
-
-          <text style={{ marginLeft: 10 }}>{list.label}</text>
-
-          <Divider section />
-        </Table.Row>
+    <Fragment>
+      {status.map((stat: any) => (
+        <div>
+          {console.log(stat, "VALUE")}
+          <List.Item>
+            <Label
+              size="big"
+              style={{ marginBottom: 10, marginTop: 20 }}
+              color={stat.color}
+            >
+              {stat.number}
+            </Label>
+            <text style={{ marginLeft: 28 }}>{stat.statOption}</text>
+          </List.Item>
+        </div>
       ))}
-    </div>
+    </Fragment>
   );
 };
 

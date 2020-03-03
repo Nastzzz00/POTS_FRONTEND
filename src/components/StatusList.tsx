@@ -1,7 +1,4 @@
 import React from "react";
-
-import styled from "styled-components";
-import StatusItem from "./StatusItem";
 import HeaderTitle from "../components/HeaderTitle";
 
 export interface IStatusListProps {}

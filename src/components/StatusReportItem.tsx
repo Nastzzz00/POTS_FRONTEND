@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
-import { ListGroupItem, Badge } from "react-bootstrap";
+import React, { Fragment } from 'react'
+import { ListGroupItem, Badge } from 'react-bootstrap'
 
 export interface IStatusReportItemProps {
-  status?: any;
+  status?: any
 }
 
 const StatusReportItem = (props: IStatusReportItemProps) => {
@@ -16,7 +16,7 @@ const StatusReportItem = (props: IStatusReportItemProps) => {
         </ListGroupItem>
       ))}
     </Fragment>
-  );
-};
+  )
+}
 
-export default StatusReportItem;
+export default StatusReportItem

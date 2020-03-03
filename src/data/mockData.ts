@@ -32,17 +32,20 @@ export const statusReport = [
   {
     id: 1,
     number: "3",
-    statOption: "Orders Received"
+    statOption: "Orders Received",
+    color: "green"
   },
   {
     id: 2,
     number: "7",
-    statOption: "Released from supplier"
+    statOption: "Released from supplier",
+    color: "blue"
   },
   {
     id: 3,
     number: "2",
-    statOption: "On-hold from supplier"
+    statOption: "On-hold from supplier",
+    color: "brown"
   }
 ];
 

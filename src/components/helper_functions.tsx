@@ -1,7 +1,23 @@
 export const handleClick = (key: any, state: any, setState: any) => {
+  const path = () => {
+    switch (key) {
+      case "dashboard":
+        return "/";
+
+      case "order":
+        return "/Orders";
+
+      case "supplier":
+        return "/Suppliers";
+
+      default:
+        break;
+    }
+  };
   setState({
     ...state,
-    currentKey: key
+    currentKey: key,
+    path: path()
   });
 };
 
