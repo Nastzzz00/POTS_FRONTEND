@@ -13,6 +13,7 @@ import potsLogo from '../img/pots-hires.png'
 export interface IProps {
   setQuery?: any
   rootStore?: any
+  title?: any
 }
 
 interface FormikValues {
@@ -21,7 +22,7 @@ interface FormikValues {
 }
 
 const Login = (props: IProps) => {
-  const { setQuery, rootStore } = props
+  const { setQuery, rootStore, title } = props
   const handleSubmit = (
     values: FormikValues,
     formikBag: FormikHelpers<FormikValues>,
@@ -302,7 +303,7 @@ const FormContainer = styled.div`
       margin-top: 40px;
     }
   }
-  .input-empty {
+  /* .input-empty {
     margin: 0 auto;
     color: #fffff;
     background: #00000;
@@ -312,7 +313,7 @@ const FormContainer = styled.div`
     height: 2.5rem;
     width: 60%;
     padding: 0.8rem 1.15rem 0;
-  }
+  } */
 
   @media (max-width: 900px) {
     .input-empty {

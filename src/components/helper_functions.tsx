@@ -1,4 +1,6 @@
+import React, { Fragment, useState } from 'react'
 import { getUser, removeUser, setUser } from './auth'
+import { Tag } from 'antd'
 import { Route, Redirect } from 'react-router-dom'
 import { message } from 'antd'
 
@@ -34,7 +36,7 @@ export const updateStatus = (
   rootStore: any,
   setQuery: any,
 ) => {
-  setQuery(rootStore.updateStatus(scheduleline))
+  setQuery(() => rootStore.updateStatus(scheduleline))
 }
 
 export const showContent = (
@@ -93,6 +95,27 @@ export const sort = [
   },
 ]
 
+// export const SearchFilterSupplier = (
+//   text: any,
+//   source: any,
+//   setState: any,
+//   state: any,
+// ) => {
+//   const newData = source.filter((x: any) => {
+//     const itemData = x.supplier.supplierName
+//       ? x.supplier.supplierName.toUpperCase()
+//       : ''.toUpperCase()
+//     const textData = text.toUpperCase()
+//     return itemData.indexOf(textData) > -1
+//   })
+
+//   setState(() => ({
+//     ...state,
+//     datasource: newData,
+//     search: text,
+//   }))
+// }
+
 export const SearchFilterSupplier = (
   text: any,
   source: any,
@@ -107,11 +130,11 @@ export const SearchFilterSupplier = (
     return itemData.indexOf(textData) > -1
   })
 
-  setState(() => ({
+  setState({
     ...state,
     datasource: newData,
     search: text,
-  }))
+  })
 }
 
 export const SearchFilterOrder = (
@@ -154,20 +177,184 @@ export const onSubmit = (
   error?: any,
   data?: any,
 ) => {
-  // console.log(userinfo, 'ANOTO')
-  // const value = getUser()
-  // const { username } = value
-  // if (userinfo.username == '') {
-  //   if (username == 'logout') {
-  //     removeUser()
-  //     let object = {
-  //       username: '',
-  //       password: '',
-  //       loggedin: false,
-  //     }
-  //     setUser(object)
-  //   }
-  // }
-  // // setQuery(rootStore.requestPurchaseOrders())
+  const value = getUser()
+  const { username } = value
+  if (userinfo.username == '') {
+    if (username == 'logout') {
+      removeUser()
+      let object = {
+        username: '',
+        password: '',
+        loggedin: false,
+      }
+      setUser(object)
+    }
+  }
+  // setQuery(rootStore.requestPurchaseOrders())
   login(userinfo, setQuery, rootStore)
 }
+
+export const itemStatusColor = (status: any, state: any, setState: any) => {
+  switch (status) {
+    case 'On-going':
+      return 'orange'
+    case 'Complete':
+      return 'green'
+    case 'Not Started':
+      return 'red'
+    default:
+      break
+  }
+}
+
+export const status = [
+  {
+    value: '1',
+    desc: 'Ready to Ship',
+  },
+  {
+    value: '2',
+    desc: 'Delivered',
+  },
+  {
+    value: '3',
+    desc: 'On the Logistics Facility',
+  },
+]
+
+export const sched_columns = [
+  {
+    title: 'Delivery Schedule',
+    dataIndex: 'deliveryDateAndTime',
+    key: 'deliveryDateAndTime',
+  },
+
+  {
+    title: 'Delivery Address',
+    dataIndex: 'delvAddress',
+    key: 'delvAddress',
+  },
+
+  {
+    title: 'Item No',
+    dataIndex: 'itemNo',
+    key: 'itemNo',
+  },
+
+  {
+    title: 'Description',
+    dataIndex: 'description',
+    key: 'description',
+  },
+  {
+    title: 'Qty',
+    dataIndex: 'quantity',
+    key: 'quantity',
+  },
+  {
+    title: 'UoM',
+    dataIndex: 'uom',
+    key: 'uom',
+  },
+  {
+    title: 'Unit Price',
+    dataIndex: 'unitPrice',
+    key: 'unitPrice',
+  },
+  {
+    title: 'Total Amout',
+    dataIndex: 'totalAmount',
+    key: 'totalAmount',
+  },
+]
+
+export const handleChange = (value: any, state: any, setState: any) => {
+  const status = (key: any) => {
+    switch (key) {
+      case '1':
+        return 'Ready to Ship'
+      case '3':
+        return 'On the Logistics Facility'
+      case '2':
+        return 'Delivered'
+      default:
+        break
+    }
+  }
+  setState({
+    ...state,
+    status: status(value),
+  })
+}
+
+export const statusColor = (status: any) => {
+  if (status == 'Closed') {
+    return '#f50'
+  }
+  if (status == 'Open') {
+    return '#87d068'
+  }
+}
+
+export const changewidth = (key: any, setState: any, state: any) => {
+  switch (key) {
+    case 'item':
+      return 'orderitemtablemax'
+
+    default:
+      return 'orderitemtable'
+  }
+}
+
+export const item_columns = [
+  {
+    title: 'Item No',
+    dataIndex: 'itemNo',
+    key: 'itemNo',
+  },
+  {
+    title: 'ProductID',
+    dataIndex: 'productId',
+    key: 'productId',
+  },
+  {
+    title: 'Description',
+    dataIndex: 'description',
+    key: 'description',
+  },
+  {
+    title: 'Qty',
+    dataIndex: 'quantity',
+    key: 'quantity',
+  },
+  {
+    title: 'UoM',
+    dataIndex: 'uom',
+    key: 'uom',
+  },
+  {
+    title: 'Unit Price',
+    dataIndex: 'unitPrice',
+    key: 'unitPrice',
+  },
+  {
+    title: 'Discount',
+    dataIndex: 'discount',
+    key: 'discount',
+  },
+  {
+    title: 'Total Amout',
+    dataIndex: 'totalAmount',
+    key: 'totalAmount',
+  },
+  {
+    title: 'Status',
+    key: 'supplierStatusItem',
+    dataIndex: 'supplierStatusItem',
+    render: (item: any, setState: any, state: any) => (
+      <span>
+        <Tag color={itemStatusColor(item, setState, state)}>{item}</Tag>
+      </span>
+    ),
+  },
+]

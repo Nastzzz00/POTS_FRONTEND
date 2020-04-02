@@ -12,10 +12,10 @@ import { shallow } from 'enzyme'
 import LoginScreen from '../components/LoginScreen'
 
 const props = {
-  title: 'Login Screen',
+  title: 'LoginScreen',
 }
 
-describe('Login Screen', () => {
+describe('LoginScreen', () => {
   test('renders correctly', () => {
     expect(shallow(<LoginScreen {...props} />)).toMatchSnapshot()
   })

@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react'
 
 export interface IPoItemProps {
-  list?: any;
+  list?: any
 }
 
 const PoItem = (props: IPoItemProps) => {
@@ -14,7 +14,7 @@ const PoItem = (props: IPoItemProps) => {
         </div>
       ))}
     </Fragment>
-  );
-};
+  )
+}
 
-export default PoItem;
+export default PoItem

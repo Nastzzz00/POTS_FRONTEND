@@ -18,10 +18,8 @@ const setUser = async (user: any) => {
   localStorage.setItem(USER_STOREKEY, JSON.stringify(user))
 }
 
-const removeUser = async () => {
-  console.log('REMOVED USER')
+const removeUser = async (any: any) => {
   localStorage.removeItem(USER_STOREKEY)
-  console.log(localStorage, 'OCAL STORAGE')
 }
 
 export { getUser, setUser, removeUser }

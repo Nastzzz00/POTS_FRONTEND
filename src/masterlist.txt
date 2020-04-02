@@ -261,7 +261,6 @@ const MasterList = (props: IMasterList) => {
                       </TabPane>
                       <TabPane tab="Delivery Schedule" key="sched">
                         <InfiniteScroll
-                          itemID="base"
                           initialLoad={false}
                           pageStart={0}
                           selected={tabState.selectedSchedID}

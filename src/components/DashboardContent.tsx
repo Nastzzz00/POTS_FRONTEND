@@ -36,7 +36,6 @@ const DashboardContent = (props: IDashboardContentProps) => {
   })
   const { Title, Text } = Typography
 
-  console.log(list, 'ARRAYLIST')
   const filterbydate = list.filter(
     (x: any) =>
       moment(x.documentDate).format('MMMM D, YYYY') ==
@@ -64,9 +63,6 @@ const DashboardContent = (props: IDashboardContentProps) => {
     })
   }
 
-  const load = () => {
-    return console.log('LOAD')
-  }
   return (
     <Fragment>
       <div className="content1">
