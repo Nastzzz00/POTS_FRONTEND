@@ -1,14 +1,14 @@
-import React from 'react'
-import { Card, ListGroup, Container, Row, Col } from 'react-bootstrap'
-import PoItem from './PoItem'
-import ButtonApp from './Button'
+import React from "react";
+import { Card, ListGroup, Container, Row, Col } from "react-bootstrap";
+import PoItem from "./PoItem";
+import ButtonApp from "./Button";
 
 export interface IPoStatusProps {
-  list?: any
+  list?: any;
 }
 
 const PoStatus = (props: IPoStatusProps) => {
-  const { list } = props
+  const { list } = props;
   return (
     <ListGroup>
       <Container>
@@ -17,7 +17,7 @@ const PoStatus = (props: IPoStatusProps) => {
         </Row>
       </Container>
     </ListGroup>
-  )
-}
+  );
+};
 
-export default PoStatus
+export default PoStatus;
