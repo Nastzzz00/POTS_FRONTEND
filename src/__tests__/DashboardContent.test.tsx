@@ -11,20 +11,12 @@ import { shallow } from 'enzyme'
 
 import DashboardContent from '../components/DashboardContent'
 
-const list = [{ documentdDate: '03/20/2020' }]
-const statelogout = [{ username: 'some value' }]
 const props = {
   title: 'Dashboard Content',
-  list: list,
-  statelogout: statelogout,
 }
 
 describe('Dashboard Content', () => {
   test('renders correctly', () => {
-    expect(
-      shallow(
-        <DashboardContent {...props} list={list} statelogout={statelogout} />,
-      ),
-    ).toMatchSnapshot()
+    expect(shallow(<DashboardContent {...props} />)).toMatchSnapshot()
   })
 })

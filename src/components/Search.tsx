@@ -6,10 +6,9 @@ import { Search, Grid } from 'semantic-ui-react'
 export interface ISearchProps {
   onSearch?: any
   size?: any
-  title?: any
 }
 const SearchComponent = (props: ISearchProps) => {
-  const { onSearch, size, title } = props
+  const { onSearch, size } = props
   return (
     <Grid>
       <Grid.Column width={6}>

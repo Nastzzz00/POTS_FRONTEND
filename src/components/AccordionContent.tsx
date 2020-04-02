@@ -7,7 +7,6 @@ import PoStatus from './PoStatus'
 
 export interface IAccordionProps {
   onClick?: any
-  title?: any
 }
 
 const threeColumnsResponsiveProps = {
@@ -20,7 +19,7 @@ const threeColumnsResponsiveProps = {
 }
 
 const AccordionContent = (props: IAccordionProps) => {
-  const { onClick, title } = props
+  const { onClick } = props
   return (
     <Fragment>
       <Row {...threeColumnsResponsiveProps}>

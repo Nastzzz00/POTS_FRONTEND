@@ -9,11 +9,10 @@ export interface ISortyBy {
   setState?: any
   sorts?: any
   title?: any
-  sortby?: any
 }
 
 const SortBy = (props: ISortyBy) => {
-  const { state, setState, sorts, sortby } = props
+  const { state, setState, sorts } = props
   const handleChange = (value: any, state: any, setState: any) => {
     setState({
       ...state,
